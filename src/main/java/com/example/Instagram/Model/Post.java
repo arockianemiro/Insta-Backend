@@ -12,37 +12,60 @@ public class Post {
     private Long id;
 
     private String caption;
+
     private String imageUrl;
-    private LocalDateTime createdAt;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Post() {
-        this.createdAt = LocalDateTime.now();
-    }
+    public Post() {}
 
     public Post(String caption, String imageUrl, User user) {
         this.caption = caption;
         this.imageUrl = imageUrl;
         this.user = user;
-        this.createdAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getCaption() { return caption; }
-    public void setCaption(String caption) { this.caption = caption; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+    public String getCaption() {
+        return caption;
+    }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
 
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

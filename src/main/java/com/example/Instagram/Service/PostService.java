@@ -13,16 +13,12 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
+    public List<Post> getAllPosts() {
+        return postRepository.findAllByOrderByIdDesc();
+    }
+
     public Post createPost(Post post) {
         return postRepository.save(post);
-    }
-
-    public List<Post> getAllPosts() {
-        return postRepository.findAll();
-    }
-
-    public List<Post> getPostsByUserId(Long userId) {
-        return postRepository.findByUserId(userId);
     }
 
     public void deletePost(Long id) {
